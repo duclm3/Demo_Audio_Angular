@@ -1,0 +1,20 @@
+<h1>Audio app</h1>
+
+<li *ngFor="let file of files" (click)="openFile(file.url)">
+  {{file.name}}
+</li>
+<div>
+<button (click)="play()">Play</button>
+<button (click) ="pause()" >Pause</button>
+<button (click) ="stop()">Stop</button>
+</div>
+<div>
+  <span>{{currentTime}}</span>
+  <input type="range" min="0" [value]="duration" max="{{currentTime}}">
+  <span>{{duration}}</span>
+</div>
+<div>
+  <span>volume</span>
+  <input type="range" min="0" max="1" step="0.01" value="0.5" (input)="setVolume($event)">
+</div>
+
